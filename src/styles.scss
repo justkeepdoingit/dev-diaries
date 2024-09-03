@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --text-color: #0a1a32;
+  --usbtext-color: #767b84;
+  --image-text-color: #fffbef;
+  --font-size-base: 1em; /* 16px */
+  --font-size-small: calc(var(--font-size-base) / 1.25); /* 0.8em */
+  --font-size-regular: var(--font-size-base); /* 1em */
+  --font-size-medium: calc(var(--font-size-base) * 1.25); /* 1.25em */
+  --font-size-large: calc(var(--font-size-base) * 1.25 * 1.25); /* 1.563em */
+  --font-size-xlarge: calc(var(--font-size-base) * 1.25 * 1.25 * 1.25); /* 1.953em */
+  --font-family: "Roboto";
+  --font-thin: 100;
+  --font-light: 200,
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+  --font-black: 900;
+  --max-width: 1440px;
+  --max-padding: 0px 40px;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Fonts/Roboto-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Fonts/Roboto-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+  font-family: 'Roboto';
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-color);
+}

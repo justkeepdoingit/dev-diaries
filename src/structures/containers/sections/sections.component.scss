@@ -1,0 +1,6 @@
+:host(.body-section):not(:last-of-type) {
+  padding-top: 70px;
+}
+:host(.body-section):last-of-type {
+  padding: 70px 0px;
+}
