@@ -2,23 +2,28 @@
 :root {
   --text-color: #0a1a32;
   --usbtext-color: #767b84;
-  --image-text-color: #fffbef;
+  --text-white: #fffbef;
   --font-size-base: 1em; /* 16px */
-  --font-size-small: calc(var(--font-size-base) / 1.25); /* 0.8em */
+  --font-size-small: calc(var(--font-size-base) / 1.125); /* 0.8em */
   --font-size-regular: var(--font-size-base); /* 1em */
   --font-size-medium: calc(var(--font-size-base) * 1.25); /* 1.25em */
   --font-size-large: calc(var(--font-size-base) * 1.25 * 1.25); /* 1.563em */
   --font-size-xlarge: calc(var(--font-size-base) * 1.25 * 1.25 * 1.25); /* 1.953em */
+  --font-size-title: calc(var(--font-size-base) * 2 * 1.25 * 1.25);
   --font-family: "Roboto";
   --font-thin: 100;
-  --font-light: 200,
+  --font-light: 200;
   --font-normal: 400;
   --font-medium: 500;
   --font-bold: 700;
   --font-black: 900;
   --max-width: 1440px;
   --max-padding: 0px 40px;
+  --line-height: 1.3em;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @font-face {
   font-family: "Roboto";
   src: url("./assets/Fonts/Roboto-Thin.ttf") format("truetype");
@@ -55,15 +60,74 @@
   font-weight: 900;
   font-style: normal;
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
 }
-a{
-  font-family: 'Roboto';
-  font-weight: 400;
-  text-transform: uppercase;
+a {
   text-decoration: none;
   color: var(--text-color);
+}
+h1 {
+  font-size: var(--font-size-xlarge);
+  font-weight: 400;
+}
+p {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height);
+  font-weight: 200;
+}
+body {
+  padding: 5px;
+}
+
+[data-position="absolute"] {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.row {
+  flex-direction: row;
+}
+.column {
+  flex-direction: column;
+}
+.p-unset {
+  padding: unset;
+}
+.mw-unset {
+  max-width: unset;
+}
+.text-white {
+  color: var(--text-white);
+}
+.gap-1 {
+  gap: 1em;
 }

@@ -1,0 +1,90 @@
+$paginatorPage: 0.9em;
+$paginatorGap: 0.3em;
+
+$paginatorTranslate: calc($paginatorGap + $paginatorPage - 0.1px);
+
+.hero-content-paginator {
+  display: flex;
+  gap: $paginatorGap;
+  margin-top: 1em;
+  position: relative;
+
+  .paginator-item {
+    height: $paginatorPage;
+    width: $paginatorPage;
+    border: 1px solid var(--text-white);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+  }
+  [page-active="true"] {
+    background-color: var(--text-white);
+    width: calc($paginatorPage + 1em);
+  }
+}
+.hero-content-container {
+  border-radius: 8px;
+  background-color: var(--text-white);
+  height: 600px;
+  padding: 70px 0px;
+  align-items: flex-end;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  p {
+    width: 70%;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+}
+[data-slide-active="false"] {
+  display: none;
+}
+[data-slide-active="true"] {
+  display: flex;
+  flex-direction: column;
+}
+contents {
+  h1 {
+    margin-left: -6px;
+  }
+}
+
+@keyframes pageNext {
+  0% {
+    height: $paginatorPage;
+    width: $paginatorPage;
+  }
+  50% {
+    width: calc(($paginatorPage * 2) + $paginatorGap);
+  }
+  75% {
+    height: $paginatorPage;
+    width: $paginatorPage;
+  }
+  100% {
+    translate: $paginatorTranslate;
+  }
+}
+
+@keyframes pagePrev {
+  0% {
+    height: $paginatorPage;
+    width: $paginatorPage;
+  }
+  50% {
+    width: calc(($paginatorPage * 2) + $paginatorGap);
+  }
+  70% {
+    translate: calc(-1 * $paginatorTranslate);
+  }
+  100% {
+    height: $paginatorPage;
+    width: $paginatorPage;
+  }
+}

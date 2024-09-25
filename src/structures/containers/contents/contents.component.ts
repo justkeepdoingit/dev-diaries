@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: `contents`,
@@ -7,6 +7,14 @@ import { Component } from "@angular/core";
   styleUrl: "./contents.component.scss",
   host: {
     role: "group",
+    "[class]": "contentClass",
+    "[style]": "styleValue",
   },
 })
-export class Contents {}
+export class Contents {
+  @Input()
+  contentClass: string = "";
+
+  @Input()
+  styleValue: {} = {};
+}

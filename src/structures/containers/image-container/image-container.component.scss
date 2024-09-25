@@ -1,0 +1,22 @@
+:host(:not([data-position="absolute"])) {
+  position: relative;
+  width: 100%;
+  height: 500px; //default
+}
+picture source,
+picture img {
+  object-fit: cover;
+  object-position: center center;
+}
+picture source,
+picture img,
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}

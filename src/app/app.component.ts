@@ -1,13 +1,16 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { Sections } from "../structures/containers/sections/sections.component";
-import { INavItems } from "./Navigation/navigation.interface";
+import { INavItems } from "../Interfaces/navigation.interface";
 import { Navigation } from "./Navigation/navigation.component";
+import { HeroService } from "../services/HeroService.service";
+import { Hero } from "./Hero/hero.component";
+import { IHero } from "../Interfaces/hero.interface";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, Sections, Navigation],
+  imports: [RouterOutlet, Sections, Navigation, Hero],
   template: `
     <header>
       <nav>
@@ -15,19 +18,15 @@ import { Navigation } from "./Navigation/navigation.component";
       </nav>
     </header>
     <main>
-      <section data-element="section" [sectionClass]="'body-section'">
-        <p>Hello World: {{ title }}</p>
-      </section>
-      <section data-element="section" [sectionClass]="'body-section'">
-        <p>Hello World: {{ title }}</p>
-      </section>
+      <hero [heroContent]="heroContent"></hero>
     </main>
   `,
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-  title = "dev-diaries";
+  private HeroService = inject(HeroService);
 
+  heroContent: IHero[] = this.HeroService.getHeroContent();
   navigationItems: INavItems[] = [
     {
       nav_name: "Travel",
