@@ -15,31 +15,22 @@ import { FadedShow } from "../../Animations/FadedShow.animations";
   animations: [
     trigger("showContents", [
       transition("* => showItems", [
-        query('[data-slide-active="true"] [data-animate-type="showItems"]', [useAnimation(staggeredShow)]),
+        query('[data-slide-active="true"] [data-animate-type="showItems"]', [useAnimation(staggeredShow)], {
+          params: { easing: "300ms ease-in-out" },
+        }),
       ]),
     ]),
     trigger("fadeInContent", [
-      transition("* => fadeIn", 
-        [useAnimation(FadedShow)]
-      )
+      transition("* => fadeIn", [useAnimation(FadedShow)], { params: { easing: "1s ease-out" } }),
     ]),
   ],
   template: `
     <section class="hero-content-container flex items-end flex-col justify-end">
       <div class="flex w-full">
         @for (contents of heroContent; track contents.title) {
-        <div
-          [@showContents]="pageIndex == $index ? 'showItems' : ''"
-          class="w-full"
-          [attr.data-slide-item]="$index"
-          [attr.data-slide-active]="pageIndex == $index"
-        >
-          <image
-            [@fadeInContent]="pageIndex == $index ? 'fadeIn' : ''"
-            [source]="contents.hero_image"
-            [imagePosition]="'absolute'"
-          />
-          <contents [styleValue]="{ gap: '1em' }">
+        <div class="w-full" [attr.data-slide-item]="$index" [attr.data-slide-active]="pageIndex == $index">
+          <image [source]="contents.hero_image" [imagePosition]="'absolute'" />
+          <contents [@showContents]="pageIndex == $index ? 'showItems' : ''" [styleValue]="{ gap: '1em' }">
             <contents
               [contentClass]="'column justify-end'"
               [styleValue]="{ padding: 'unset', maxWidth: 'unset', gap: '0.7em' }"

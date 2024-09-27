@@ -39,7 +39,7 @@ export class HeroService {
         text: "This website is made with Angular. Know my journey in learning and making this website.",
         hero_image: [
           {
-            imageLink: "Images/Baguio.webp",
+            imageLink: "Images/Angular.webp",
             media: "1024",
           },
         ],
@@ -62,7 +62,7 @@ export class HeroService {
         text: "As my first motorcycle, this has given me a lot of chance to go to different place I always dreamed of! Know what these places are.",
         hero_image: [
           {
-            imageLink: "Images/Baguio.webp",
+            imageLink: "Images/Motorcycle.webp",
             media: "1024",
           },
         ],

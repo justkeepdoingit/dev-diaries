@@ -6,7 +6,7 @@
 picture source,
 picture img {
   object-fit: cover;
-  object-position: center center;
+  object-position: center bottom;
 }
 picture source,
 picture img,
@@ -18,5 +18,12 @@ picture img,
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgb(18, 18, 18);
+  background: linear-gradient(
+    0deg,
+    rgba(18, 18, 18, 0.7998658081396621) 0%,
+    rgba(18, 18, 18, 0.7158321946942839) 23%,
+    rgba(18, 18, 18, 0.561770570044424) 63%,
+    rgba(18, 18, 18, 0.26514355742296913) 95%
+  );
 }
