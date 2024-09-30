@@ -1,6 +1,7 @@
 :host(.body-section):not(:last-of-type) {
-  padding-top: 70px;
+  padding-top: 60px;
 }
 :host(.body-section):last-of-type {
-  padding: 70px 0px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }

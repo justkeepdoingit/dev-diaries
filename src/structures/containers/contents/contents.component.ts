@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
   selector: `contents`,
@@ -7,13 +7,20 @@ import { Component, Input } from "@angular/core";
   styleUrl: "./contents.component.scss",
   host: {
     role: "group",
-    "[class]": "contentClass",
+    "[class]": "externalClass",
     "[style]": "styleValue",
   },
 })
-export class Contents {
+export class Contents implements OnInit {
   @Input()
   contentClass: string = "";
+  @Input()
+  innerContent: boolean = false;
+  externalClass: string = "";
+
+  ngOnInit(): void {
+    this.externalClass = `${this.contentClass} ${this.innerContent ? "innerContent" : ""}`;
+  }
 
   @Input()
   styleValue: {} = {};

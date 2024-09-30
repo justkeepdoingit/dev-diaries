@@ -43,5 +43,7 @@
 }
 :host:not(.sub-nav-item) {
   max-width: var(--max-width);
-  padding: var(--max-padding);
+  padding-left: var(--max-padding-lr);
+  padding-right: var(--max-padding-lr);
+  margin: auto;
 }

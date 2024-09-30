@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { IDateRead } from "../../../Interfaces/date-read.interface";
+import { IDateRead } from "../../../Interfaces/dateRead.interface";
 
 @Component({
   standalone: true,

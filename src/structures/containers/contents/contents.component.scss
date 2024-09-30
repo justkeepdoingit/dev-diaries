@@ -1,9 +1,13 @@
 :host {
-  padding: var(--max-padding);
+  padding-left: var(--max-padding-lr);
+  padding-right: var(--max-padding-lr);
   max-width: var(--max-width);
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
+}
+:host(.innerContent) {
+  padding: 0;
 }

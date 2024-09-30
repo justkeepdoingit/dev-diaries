@@ -6,11 +6,12 @@ import { Navigation } from "./Navigation/navigation.component";
 import { HeroService } from "../services/HeroService.service";
 import { Hero } from "./Hero/hero.component";
 import { IHero } from "../Interfaces/hero.interface";
+import { Blog } from "./Blog/blog.component";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, Sections, Navigation, Hero],
+  imports: [RouterOutlet, Sections, Navigation, Hero, Blog],
   template: `
     <header>
       <nav>
@@ -18,7 +19,17 @@ import { IHero } from "../Interfaces/hero.interface";
       </nav>
     </header>
     <main>
-      <hero [heroContent]="heroContent"></hero>
+      <section>
+        <hero [heroContent]="heroContent"></hero>
+      </section>
+      <section [sectionClass]="'body-section'" data-element="section">
+        <blog>
+          <h1 blog-title>Blog</h1>
+          <p class=" mt-2" blog-description>
+            Here, we share trips, destination guides, and stories that will inspire you in your next adventure
+          </p>
+        </blog>
+      </section>
     </main>
   `,
   styleUrl: "./app.component.scss",

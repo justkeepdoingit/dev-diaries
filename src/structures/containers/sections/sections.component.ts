@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, HostBinding, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Contents } from "../contents/contents.component";
 @Component({
   selector: `[data-element="section"]`,
@@ -17,6 +17,7 @@ import { Contents } from "../contents/contents.component";
 export class Sections implements OnInit {
   @Input()
   sectionClass: string = "";
+
   elementClass: string = "";
 
   ngOnInit(): void {
