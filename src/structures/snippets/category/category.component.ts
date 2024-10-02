@@ -6,13 +6,16 @@ import { ICategory } from "../../../Interfaces/category.interface";
   selector: `category`,
   template: `
     @for(categories of category_items; track categories.category_name){
-    <a class="text-white text-sm " [href]="categories.category_link">
+    <a
+      class="text-white text-sm rounded-full px-4 py-1 w-fit bg-slate-400 bg-opacity-10 backdrop-blur-[1px] -ml-2"
+      [href]="categories.category_link"
+    >
       {{ categories.category_name }}
     </a>
     }
   `,
   host: {
-    class: "rounded-full px-4 py-1 w-fit bg-slate-400 bg-opacity-10 backdrop-blur-[1px] -ml-2",
+    class: "flex gap-4",
   },
 })
 export class Category {

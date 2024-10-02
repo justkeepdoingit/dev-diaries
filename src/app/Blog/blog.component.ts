@@ -1,5 +1,9 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { Contents } from "../../structures/containers/contents/contents.component";
+import { Observable } from "rxjs";
+import { IBlog } from "../../Interfaces/Blog_Interface/blog.interface";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { BlogService } from "../../services/BlogService/BlogServices.service";
 
 @Component({
   standalone: true,
@@ -11,4 +15,17 @@ import { Contents } from "../../structures/containers/contents/contents.componen
   `,
   styleUrl: "./blog.component.scss",
 })
-export class Blog {}
+export class Blog implements OnInit {
+  blogs$!: Observable<IBlog[]>;
+  blogService = inject(BlogService);
+
+  constructor() {
+    this.blogs$ = this.blogService.getBlogs();
+  }
+
+  ngOnInit(): void {
+    this.blogs$.subscribe((data) => {
+      console.log(data);
+    });
+  }
+}

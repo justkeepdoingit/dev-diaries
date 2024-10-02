@@ -8,8 +8,8 @@ export interface IBlog {
   id: string;
   title: string;
   blog_content: IBlogContent;
-  category: ICategory[];
-  author: IAuthor[];
+  categories: ICategory[];
+  author: IAuthor;
   date_read: IDateRead;
   blog_image: IPicture[];
 }

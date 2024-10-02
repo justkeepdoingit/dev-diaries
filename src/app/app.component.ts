@@ -3,9 +3,7 @@ import { RouterOutlet } from "@angular/router";
 import { Sections } from "../structures/containers/sections/sections.component";
 import { INavItems } from "../Interfaces/navigation.interface";
 import { Navigation } from "./Navigation/navigation.component";
-import { HeroService } from "../services/HeroService.service";
 import { Hero } from "./Hero/hero.component";
-import { IHero } from "../Interfaces/hero.interface";
 import { Blog } from "./Blog/blog.component";
 
 @Component({
@@ -20,7 +18,7 @@ import { Blog } from "./Blog/blog.component";
     </header>
     <main>
       <section>
-        <hero [heroContent]="heroContent"></hero>
+        <hero></hero>
       </section>
       <section [sectionClass]="'body-section'" data-element="section">
         <blog>
@@ -35,9 +33,6 @@ import { Blog } from "./Blog/blog.component";
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-  private HeroService = inject(HeroService);
-
-  heroContent: IHero[] = this.HeroService.getHeroContent();
   navigationItems: INavItems[] = [
     {
       nav_name: "Travel",
