@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { IPicture } from "../../../Interfaces/picture.interface";
+import { defaultImage } from "../../../Configs/defaultValues";
 /**
  * A responsive image container component that dynamically generates `<source>` tags
  * within a `<picture>` element for different media breakpoints.
@@ -18,10 +19,10 @@ import { IPicture } from "../../../Interfaces/picture.interface";
   selector: "image",
   template: `
     <picture>
-      @for (image of source; track $index) {
+      @for (image of source; track $index) { @if(image){
       <source [srcset]="image.imageLink" [media]="image.media" />
-      }
-      <img [src]="source[0].imageLink" alt="" loading="lazy" />
+      } }
+      <img [src]="source[0] ? source[0].imageLink : defaultImage[0].imageLink" alt="" loading="lazy" />
       @if(!hideOverlay){
       <div class="overlay"></div>
       }
@@ -60,6 +61,7 @@ export class ImageContainer {
    */
   @Input()
   imagePosition: "relative" | "absolute" = "relative";
+  defaultImage = defaultImage;
 
   /**
    * Hide or show overlay depending on boolean value

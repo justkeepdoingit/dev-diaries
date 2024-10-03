@@ -7,7 +7,7 @@ import { ToDate } from "../../../Pipes/ToDate.pipe";
   selector: "date-read",
   imports: [DatePipe, ToDate],
   template: `
-    <p class="text-white mt-2 text-sm">
+    <p [class]="componentType()">
       {{ dateRead.author_date | ToDate | date : "MMMM d" }} • {{ dateRead.read_time }} mins to read
     </p>
   `,
@@ -15,4 +15,19 @@ import { ToDate } from "../../../Pipes/ToDate.pipe";
 export class DateRead {
   @Input()
   dateRead!: IDateRead;
+  @Input()
+  dateReadType: string = "hero";
+
+  componentType(): string {
+    const type = this.dateReadType;
+    let defaultClass = "mt-3 mb-1 text-sm ";
+    switch (type) {
+      case "hero":
+        return (defaultClass += "text-white");
+      case "blog-card":
+        return (defaultClass += "text-gray-500");
+      default:
+        return (defaultClass += "text-white");
+    }
+  }
 }

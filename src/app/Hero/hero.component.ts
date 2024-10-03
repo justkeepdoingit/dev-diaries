@@ -1,17 +1,13 @@
 import { Component, inject, Input } from "@angular/core";
-import { IHero } from "../../Interfaces/hero.interface";
-import { Contents } from "../../structures/containers/contents/contents.component";
-import { ImageContainer } from "../../structures/containers/image-container/image-container.component";
-import { Category } from "../../structures/snippets/category/category.component";
-import { Author } from "../../structures/snippets/author/author.component";
-import { DateRead } from "../../structures/snippets/dateRead/dateRead.component";
+import { Contents } from "../../Structures/containers/contents/contents.component";
+import { ImageContainer } from "../../Structures/containers/image-container/image-container.component";
+import { Category } from "../../Structures/snippets/category/category.component";
+import { Author } from "../../Structures/snippets/author/author.component";
+import { DateRead } from "../../Structures/snippets/dateRead/dateRead.component";
 import { staggeredShow } from "../../Animations/StaggeredShow.animation";
 import { query, transition, trigger, useAnimation } from "@angular/animations";
-import { FadedShow } from "../../Animations/FadedShow.animations";
-import { Observable, of } from "rxjs";
-import { IBlog } from "../../Interfaces/Blog_Interface/blog.interface";
-import { BlogService } from "../../services/BlogService/BlogServices.service";
 import { AsyncPipe } from "@angular/common";
+import { Blog } from "../Blog/blog.component";
 @Component({
   selector: `hero`,
   standalone: true,
@@ -24,14 +20,11 @@ import { AsyncPipe } from "@angular/common";
         }),
       ]),
     ]),
-    trigger("fadeInContent", [
-      transition("* => fadeIn", [useAnimation(FadedShow)], { params: { easing: "1s ease-out" } }),
-    ]),
   ],
   template: `
     <div class="hero-content-container flex items-end flex-col justify-end">
       <div class="flex w-full">
-        @for (contents of blogItems$ | async; track $index) {
+        @for (contents of blogs$; track $index) {
         <div class="w-full" [attr.data-slide-item]="$index" [attr.data-slide-active]="pageIndex == $index">
           <image [source]="contents.blog_image" [imagePosition]="'absolute'" />
           <contents [@showContents]="pageIndex == $index ? 'showItems' : ''" [styleValue]="{ gap: '1em' }">
@@ -53,7 +46,7 @@ import { AsyncPipe } from "@angular/common";
 
       <contents>
         <div class="hero-content-paginator z-10">
-          @for (items of blogItems$ | async; track $index){
+          @for (items of blogs$; track $index){
           <div class="paginator-item" [attr.page-active]="pageIndex == $index" (click)="setPageActive($index)"></div>
           }
         </div>
@@ -62,17 +55,9 @@ import { AsyncPipe } from "@angular/common";
   `,
   styleUrl: "./hero.component.scss",
 })
-export class Hero {
-  blogService = inject(BlogService);
-  blogItems$: Observable<IBlog[]> = of([]);
-
+export class Hero extends Blog {
   animateType: string = "showItems";
   pageIndex: number = 0;
-
-  constructor() {
-    this.blogItems$ = this.blogService.getBlogs();
-    console.log(this.blogItems$);
-  }
 
   setPageActive(index: number) {
     this.pageIndex = index;

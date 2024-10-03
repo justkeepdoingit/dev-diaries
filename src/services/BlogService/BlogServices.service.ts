@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import { collection, collectionData, doc, docData, Firestore } from "@angular/fire/firestore";
 import { forkJoin, Observable, switchMap } from "rxjs";
-import { IBlog } from "../../Interfaces/Blog_Interface/blog.interface";
+import { IBlog } from "../../Interfaces/blog_interface/blog.interface";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 
 @Injectable({

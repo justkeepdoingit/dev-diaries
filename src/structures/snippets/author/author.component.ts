@@ -1,8 +1,8 @@
 import { Component, inject, Input } from "@angular/core";
 import { ImageContainer } from "../../containers/image-container/image-container.component";
 import { IAuthor } from "../../../Interfaces/author.interface";
-import { DefaultImage } from "../../../services/Images.service";
 import { IPicture } from "../../../Interfaces/picture.interface";
+import { defaultImage } from "../../../Configs/defaultValues";
 
 /**
  * Author Snippet
@@ -34,16 +34,10 @@ import { IPicture } from "../../../Interfaces/picture.interface";
 })
 export class Author {
   /**
-   * Default image provider for the component.
-   * If no author image is provided, this default image will be used.
-   */
-  private DefaultImage = inject(DefaultImage);
-
-  /**
    * Default image object used when the author image is not provided.
    * @type {IPicture[]}
    */
-  defaultImage: IPicture[] = this.DefaultImage.getDefault();
+  defaultImage: IPicture[] = defaultImage;
 
   /**
    * Author object containing the author's details such as name and image.

@@ -1,6 +1,6 @@
 import { Component, inject } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { Sections } from "../structures/containers/sections/sections.component";
+import { Sections } from "../Structures/containers/sections/sections.component";
 import { INavItems } from "../Interfaces/navigation.interface";
 import { Navigation } from "./Navigation/navigation.component";
 import { Hero } from "./Hero/hero.component";
