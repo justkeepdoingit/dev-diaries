@@ -48,4 +48,4 @@ Thumbs.db
 
 # Environments
 /src/Env
-/src/Tests
+#/src/Tests
