@@ -12,6 +12,10 @@ import { gridCols } from "../../../../Configs/defaultValues";
  *   <blog-card></blog-card>
  * </blog-collection>
  *
+ *
+ * Can accept custom class values
+ * @example
+ * <blog-collection [customClass]="'p-5 rounded-sm'">...</blog-collection>
  */
 @Component({
   standalone: true,
@@ -23,16 +27,6 @@ import { gridCols } from "../../../../Configs/defaultValues";
   },
 })
 export class BlogCollection implements OnInit {
-  /**
-   * Default value is xl: 4, lg: 3, md: 2, sm:1
-   * @type {IGridCols}
-   */
-  @Input()
-  /**
-   * Can accept custom class values
-   * @example
-   * <blog-collection [customClass]="'p-5 rounded-sm'">...</blog-collection>
-   */
   @Input()
   customClass: string = "";
   classNames: string = "";
