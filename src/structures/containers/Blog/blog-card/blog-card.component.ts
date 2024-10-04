@@ -7,7 +7,13 @@ import { DateRead } from "../../../snippets/dateRead/dateRead.component";
 import { IDateRead } from "../../../../Interfaces/dateRead.interface";
 import { Author } from "../../../snippets/author/author.component";
 import { IAuthor } from "../../../../Interfaces/author.interface";
-import { animate, state, style, transition, trigger } from "@angular/animations";
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from "@angular/animations";
 /**
  * A standalone component that represents a blog card layout.
  * It displays the blog image, category, read time, title, teaser, and author information.
@@ -39,8 +45,13 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
   imports: [ImageContainer, Category, DateRead, Author],
   animations: [
     trigger("blogEnter", [
-      state("in", style({ opacity: 0, transition: "0px 10px" })),
-      transition(":enter", [style({ opacity: 1, transition: "0px 0px" }), animate("300ms ease-in-out")]),
+      transition(":enter", [
+        style({ opacity: 0, translate: "0px 10px" }),
+        animate(
+          "300ms ease-in-out",
+          style({ opacity: 1, translate: "0px 0px" })
+        ),
+      ]),
     ]),
   ],
   template: `
@@ -56,6 +67,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
   styleUrl: "./blog-card.component.scss",
   host: {
     role: "article",
+    "[@blogEnter]": "",
   },
 })
 export class BlogCard {

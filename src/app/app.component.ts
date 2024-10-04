@@ -24,7 +24,8 @@ import { Blog } from "./Blog/blog.component";
         <blog>
           <h1 blog-title>Blog</h1>
           <p class=" mt-2" blog-description>
-            Here, we share trips, destination guides, and stories that will inspire you in your next adventure
+            Here, we share trips, destination guides, and stories that will
+            inspire you in your next adventure
           </p>
         </blog>
       </section>

@@ -15,9 +15,13 @@ import { Blog } from "../Blog/blog.component";
   animations: [
     trigger("showContents", [
       transition("* => showItems", [
-        query('[data-slide-active="true"] [data-animate-type="showItems"]', [useAnimation(staggeredShow)], {
-          params: { easing: "300ms ease-in-out" },
-        }),
+        query(
+          '[data-slide-active="true"] [data-animate-type="showItems"]',
+          [useAnimation(staggeredShow)],
+          {
+            params: { easing: "300ms ease-in-out" },
+          }
+        ),
       ]),
     ]),
   ],
@@ -25,19 +29,44 @@ import { Blog } from "../Blog/blog.component";
     <div class="hero-content-container flex items-end flex-col justify-end">
       <div class="flex w-full">
         @for (contents of blogs$; track $index) {
-        <div class="w-full" [attr.data-slide-item]="$index" [attr.data-slide-active]="pageIndex == $index">
+        <div
+          class="w-full"
+          [attr.data-slide-item]="$index"
+          [attr.data-slide-active]="pageIndex == $index"
+        >
           <image [source]="contents.blog_image" [imagePosition]="'absolute'" />
-          <contents [@showContents]="pageIndex == $index ? 'showItems' : ''" [styleValue]="{ gap: '1em' }">
-            <contents [innerContent]="true" [contentClass]="'column justify-end'" [styleValue]="{ gap: '0.7em' }">
-              <category [attr.data-animate-type]="animateType" [category_items]="contents.categories" />
-              <h1 [attr.data-animate-type]="animateType" class="text-white">{{ contents.title }}</h1>
+          <contents
+            [@showContents]="pageIndex == $index ? 'showItems' : ''"
+            [styleValue]="{ gap: '1em' }"
+          >
+            <contents
+              [innerContent]="true"
+              [contentClass]="'column justify-end'"
+              [styleValue]="{ gap: '0.7em' }"
+            >
+              <category
+                [attr.data-animate-type]="animateType"
+                [category_items]="contents.categories"
+              />
+              <h1 [attr.data-animate-type]="animateType" class="text-white">
+                {{ contents.title }}
+              </h1>
               <p [attr.data-animate-type]="animateType" class="text-white">
                 {{ contents.blog_content.teaser_content }}
               </p>
             </contents>
-            <contents [innerContent]="true" [contentClass]="'column items-end justify-end'">
-              <author [attr.data-animate-type]="animateType" [author]="contents.author" />
-              <date-read [attr.data-animate-type]="animateType" [dateRead]="contents.date_read" />
+            <contents
+              [innerContent]="true"
+              [contentClass]="'column items-end justify-end'"
+            >
+              <author
+                [attr.data-animate-type]="animateType"
+                [author]="contents.author"
+              />
+              <date-read
+                [attr.data-animate-type]="animateType"
+                [dateRead]="contents.date_read"
+              />
             </contents>
           </contents>
         </div>
@@ -47,7 +76,11 @@ import { Blog } from "../Blog/blog.component";
       <contents>
         <div class="hero-content-paginator z-10">
           @for (items of blogs$; track $index){
-          <div class="paginator-item" [attr.page-active]="pageIndex == $index" (click)="setPageActive($index)"></div>
+          <div
+            class="paginator-item"
+            [attr.page-active]="pageIndex == $index"
+            (click)="setPageActive($index)"
+          ></div>
           }
         </div>
       </contents>

@@ -4,37 +4,50 @@ import { IBlog } from "../../Interfaces/blog_interface/blog.interface";
 import { BlogService } from "../../Services/blogService/BlogServices.service";
 import { BlogCollection } from "../../Structures/containers/blog/blog-collection/blog-collection.component";
 import { BlogCard } from "../../Structures/containers/blog/blog-card/blog-card.component";
-import { query, transition, trigger, useAnimation } from "@angular/animations";
-import { staggeredShow } from "../../Animations/StaggeredShow.animation";
+import {
+  animateChild,
+  query,
+  stagger,
+  transition,
+  trigger,
+} from "@angular/animations";
 
 @Component({
   standalone: true,
   imports: [Contents, BlogCollection, BlogCard],
   selector: `blog`,
-  /**
-   * @TODO
-   * Add Animation for Blog Cards
-   * Already done adding the animation in the blog card
-   * Just make it work. Lol
-   */
+  animations: [
+    trigger("showBlogs", [
+      transition(":enter", [
+        query("@blogEnter", [stagger(100, animateChild())]),
+      ]),
+    ]),
+  ],
   template: `
     <ng-content select="[blog-title]"></ng-content>
     <ng-content select="[blog-description]"></ng-content>
     <contents [innerContent]="true">
-      <blog-collection>
+      @if (blogs$) {
+      <blog-collection
+        @showBlogs
+        [customClass]="'md:grid-cols-2 lg:grid-cols-3'"
+      >
         @for(contents of blogs$; track contents.id){
         <blog-card
           [blogAuthor]="contents.author"
           [blogDateRead]="contents.date_read"
           [blogImage]="contents.blog_image"
           [categories]="contents.categories"
-          data-animate-type="showItems"
+          class="test"
         >
           <h3 class=" text-xl mb-2" card-title>{{ contents.title }}</h3>
-          <p class=" text-sm" card-teaser>{{ contents.blog_content.teaser_content }}</p>
+          <p class=" text-sm" card-teaser>
+            {{ contents.blog_content.teaser_content }}
+          </p>
         </blog-card>
         }
       </blog-collection>
+      }
     </contents>
   `,
   styleUrl: "./blog.component.scss",
@@ -42,10 +55,12 @@ import { staggeredShow } from "../../Animations/StaggeredShow.animation";
 export class Blog {
   blogService = inject(BlogService);
   blogs$!: IBlog[];
+  loaded: boolean = false;
 
   constructor() {
     this.blogService.getBlogs().subscribe((blogData) => {
       this.blogs$ = blogData;
+      this.loaded = true;
     });
   }
 }

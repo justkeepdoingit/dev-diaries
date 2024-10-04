@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input, input, OnInit } from "@angular/core";
+import { AfterContentInit, Component, Input, OnInit } from "@angular/core";
 import { IGridCols } from "../../../../Interfaces/responsive/grid-cols.interface";
 import { gridCols } from "../../../../Configs/defaultValues";
 
@@ -22,14 +22,12 @@ import { gridCols } from "../../../../Configs/defaultValues";
     "[class]": "classNames",
   },
 })
-export class BlogCollection implements AfterContentInit {
+export class BlogCollection implements OnInit {
   /**
    * Default value is xl: 4, lg: 3, md: 2, sm:1
    * @type {IGridCols}
    */
   @Input()
-  gridLayouts: IGridCols = gridCols;
-
   /**
    * Can accept custom class values
    * @example
@@ -39,8 +37,7 @@ export class BlogCollection implements AfterContentInit {
   customClass: string = "";
   classNames: string = "";
 
-  ngAfterContentInit(): void {
-    const gL = this.gridLayouts;
-    this.classNames = `grid gap-4 mt-7 ${this.customClass} md:grid-cols-${gL.md} lg:grid-cols-${gL.lg}`;
+  ngOnInit(): void {
+    this.classNames = `grid gap-4 mt-7 ${this.customClass}`;
   }
 }
