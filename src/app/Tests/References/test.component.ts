@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { Contents } from "../../Structures/containers/contents/contents.component";
+import { Contents } from "../../structures/containers/contents/contents.component";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import firebase from "firebase/compat/app";
 
