@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { ImageContainer } from "../../image-container/image-container.component";
 import { IPicture } from "../../../../../app/Interfaces/picture.interface";
 import { ICategory } from "../../../../Interfaces/category.interface";

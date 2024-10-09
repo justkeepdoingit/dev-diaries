@@ -1,14 +1,7 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { Contents } from "../Structures/containers/contents/contents.component";
+import { Contents } from "../structures/containers/contents/contents.component";
 import { combineLatest, map, Observable, switchMap } from "rxjs";
-import { IBlog } from "../Interfaces/blog_interface/blog.interface";
-import {
-  collection,
-  collectionData,
-  doc,
-  Firestore,
-  getDoc,
-} from "@angular/fire/firestore";
+import { IBlog } from "../Interfaces/Blog_Interface/blog.interface";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 
 @Component({

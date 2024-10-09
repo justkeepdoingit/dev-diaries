@@ -6,7 +6,10 @@ import { INavItems } from "../../Interfaces/navigation.interface";
   template: `
     @for (basenav of navItems; track basenav.nav_name) {
     <li class="nav-base-item">
-      <a class="flex items-center justify-between gap-1" [href]="basenav.nav_url">
+      <a
+        class="flex items-center justify-between gap-1"
+        [href]="basenav.nav_url"
+      >
         <p class="text-white">{{ basenav.nav_name }}</p>
         @if(basenav.sub_nav){
         <svg>
@@ -15,7 +18,11 @@ import { INavItems } from "../../Interfaces/navigation.interface";
         }
       </a>
       @if(basenav.sub_nav){
-      <ul class="sub-nav-item" data-navigation="nav-list" [navItems]="basenav.sub_nav"></ul>
+      <ul
+        class="sub-nav-item"
+        data-navigation="nav-list"
+        [navItems]="basenav.sub_nav"
+      ></ul>
       }
     </li>
     }
