@@ -21,7 +21,9 @@ import { defaultImage } from "../../../Configs/defaultValues";
   template: `
     <div class="rounded-full h-7 w-7 relative overflow-hidden">
       <image
-        [source]="author.author_image.length < 1 ? defaultImage : author.author_image"
+        [source]="
+          author.author_image.length < 1 ? defaultImage : author.author_image
+        "
         imagePosition="absolute"
         [hideOverlay]="true"
       />

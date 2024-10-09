@@ -22,7 +22,11 @@ import { defaultImage } from "../../../Configs/defaultValues";
       @for (image of source; track $index) { @if(image){
       <source [srcset]="image.imageLink" [media]="image.media" />
       } }
-      <img [src]="source[0] ? source[0].imageLink : defaultImage[0].imageLink" alt="" loading="lazy" />
+      <img
+        [src]="source[0] ? source[0].imageLink : defaultImage[0].imageLink"
+        alt=""
+        loading="lazy"
+      />
       @if(!hideOverlay){
       <div class="overlay"></div>
       }
@@ -79,6 +83,9 @@ export class ImageContainer {
 
 function toMedia(value: IPicture[] | undefined) {
   return Array.isArray(value)
-    ? value.map((image) => ({ imageLink: image.imageLink, media: `(min-width: ${image.media}px)` }))
+    ? value.map((image) => ({
+        imageLink: image.imageLink,
+        media: `(min-width: ${image.media}px)`,
+      }))
     : [value];
 }

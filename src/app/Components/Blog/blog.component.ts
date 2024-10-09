@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { Contents } from "../../Structures/containers/contents/contents.component";
-import { IBlog } from "../../Interfaces/blog_interface/blog.interface";
-import { BlogService } from "../../Services/blogService/BlogServices.service";
-import { BlogCollection } from "../../Structures/containers/blog/blog-collection/blog-collection.component";
-import { BlogCard } from "../../Structures/containers/blog/blog-card/blog-card.component";
+import { Contents } from "../../structures/containers/contents/contents.component";
+import { IBlog } from "../../Interfaces/Blog_Interface/blog.interface";
+import { BlogService } from "../../services/BlogService/BlogServices.service";
+import { BlogCollection } from "../../structures/containers/Blog/blog-collection/blog-collection.component";
+import { BlogCard } from "../../structures/containers/Blog/blog-card/blog-card.component";
 import {
   animateChild,
   query,

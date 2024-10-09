@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from "@angular/core";
 import { ImageContainer } from "../../image-container/image-container.component";
-import { IPicture } from "../../../../Interfaces/picture.interface";
+import { IPicture } from "../../../../../app/Interfaces/picture.interface";
 import { ICategory } from "../../../../Interfaces/category.interface";
 import { Category } from "../../../snippets/category/category.component";
 import { DateRead } from "../../../snippets/dateRead/dateRead.component";

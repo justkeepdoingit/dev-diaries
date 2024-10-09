@@ -8,7 +8,7 @@ import { getAuth, provideAuth } from "@angular/fire/auth";
 import { getFirestore, provideFirestore } from "@angular/fire/firestore";
 import { getVertexAI, provideVertexAI } from "@angular/fire/vertexai-preview";
 import { firebaseConfig } from "../Env/firebase.env";
-import { AngularFireModule, FIREBASE_OPTIONS } from "@angular/fire/compat";
+import { FIREBASE_OPTIONS } from "@angular/fire/compat";
 
 export const appConfig: ApplicationConfig = {
   providers: [

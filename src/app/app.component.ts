@@ -1,10 +1,10 @@
-import { Component, inject } from "@angular/core";
+import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { Sections } from "../Structures/containers/sections/sections.component";
-import { INavItems } from "../Interfaces/navigation.interface";
-import { Navigation } from "./Navigation/navigation.component";
-import { Hero } from "./Hero/hero.component";
-import { Blog } from "./Blog/blog.component";
+import { Sections } from "./structures/containers/sections/sections.component";
+import { INavItems } from "./Interfaces/navigation.interface";
+import { Navigation } from "./Components/Navigation/navigation.component";
+import { Hero } from "./Components/Hero/hero.component";
+import { Blog } from "./Components/Blog/blog.component";
 
 @Component({
   selector: "app-root",

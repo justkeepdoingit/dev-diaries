@@ -1,9 +1,9 @@
-import { Component, inject, Input } from "@angular/core";
-import { Contents } from "../../Structures/containers/contents/contents.component";
-import { ImageContainer } from "../../Structures/containers/image-container/image-container.component";
-import { Category } from "../../Structures/snippets/category/category.component";
-import { Author } from "../../Structures/snippets/author/author.component";
-import { DateRead } from "../../Structures/snippets/dateRead/dateRead.component";
+import { Component } from "@angular/core";
+import { Contents } from "../../structures/containers/contents/contents.component";
+import { ImageContainer } from "../../structures/containers/image-container/image-container.component";
+import { Category } from "../../structures/snippets/category/category.component";
+import { Author } from "../../structures/snippets/author/author.component";
+import { DateRead } from "../../structures/snippets/dateRead/dateRead.component";
 import { staggeredShow } from "../../Animations/StaggeredShow.animation";
 import { query, transition, trigger, useAnimation } from "@angular/animations";
 import { AsyncPipe } from "@angular/common";

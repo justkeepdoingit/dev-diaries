@@ -1,6 +1,4 @@
-import { AfterContentInit, Component, Input, OnInit } from "@angular/core";
-import { IGridCols } from "../../../../Interfaces/responsive/grid-cols.interface";
-import { gridCols } from "../../../../Configs/defaultValues";
+import { Component, Input, OnInit } from "@angular/core";
 
 /**
  * Blog Collection

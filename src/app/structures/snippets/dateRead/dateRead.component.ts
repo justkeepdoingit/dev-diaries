@@ -8,7 +8,8 @@ import { ToDate } from "../../../Pipes/ToDate.pipe";
   imports: [DatePipe, ToDate],
   template: `
     <p [class]="componentType()">
-      {{ dateRead.author_date | ToDate | date : "MMMM d" }} • {{ dateRead.read_time }} mins to read
+      {{ dateRead.author_date | ToDate | date : "MMMM d" }} •
+      {{ dateRead.read_time }} mins to read
     </p>
   `,
 })

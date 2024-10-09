@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Category } from "../../../snippets/category/category.component";
-import { ICategory } from "../../../../Interfaces/category.interface";
+import { ICategory } from "../../../../app/Interfaces/category.interface";
 
 @Component({
   standalone: true,
